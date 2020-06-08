@@ -13,6 +13,9 @@ var books = [
   { name: 'Name of the Wind', genre: 'Fantasy', id: '1', authorId: '1' },
   { name: 'The Final Empire', genre: 'Fantasy', id: '2', authorId: '2' },
   { name: 'The Long Earth', genre: 'Sci-Fi', id: '3', authorId: '3' },
+  { name: 'The Heros of ages', genre: 'Fantasy', id: '4', authorId: '2' },
+  { name: 'The Lions castle ', genre: 'Fantasy', id: '5', authorId: '1' },
+  { name: 'Beam of Light', genre: 'Sci-Fi', id: '6', authorId: '3' },
 ]
 
 var authors = [
