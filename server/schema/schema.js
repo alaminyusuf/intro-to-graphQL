@@ -21,12 +21,12 @@ const BookType = new GraphQLObjectType({
 const RootQuery = new GraphQLObjectType({
   name: 'RootQueryType',
   fields: {
-    books: {
+    book: {
       type: BookType,
       args: { id: { type: GraphQLString } },
       resolve(parent, args) {
         // code to fetch data from db / other source
-        return _find(books, { id: args.id })
+        return _.find(books, { id: args.id })
       },
     },
   },
