@@ -4,6 +4,8 @@ import { ApolloProvider } from 'react-apollo'
 
 // import component files
 import BookList from './components/BookList'
+import AddBook from './components/AddBook'
+
 import './App.css'
 
 const client = new ApolloClient({
@@ -17,6 +19,7 @@ class App extends Component {
         <div style={{ textAlign: 'center' }}>
           <h1>My Book List App</h1>
           <BookList />
+          <AddBook />
         </div>
       </ApolloProvider>
     )

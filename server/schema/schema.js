@@ -1,5 +1,4 @@
 const graphql = require('graphql')
-const _ = require('lodash')
 const Books = require('../models/Books')
 const Authors = require('../models/Authors')
 
@@ -22,7 +21,6 @@ const BookType = new GraphQLObjectType({
     author: {
       type: AuthorType,
       resolve(parent, args) {
-        // return _.find(authors, { id: parent.authorId })
         return Authors.findById(parent.authorId)
       },
     },
@@ -38,7 +36,6 @@ const AuthorType = new GraphQLObjectType({
     books: {
       type: new GraphQLList(BookType),
       resolve(parent, args) {
-        // return _.filter(books, { authorId: parent.id })
         return Books.find({ authorId: parent.id })
       },
     },
@@ -48,23 +45,6 @@ const AuthorType = new GraphQLObjectType({
 const RootQuery = new GraphQLObjectType({
   name: 'RootQueryType',
   fields: {
-    book: {
-      type: BookType,
-      args: { id: { type: GraphQLID } },
-      resolve(parent, args) {
-        // code to fetch data from db / other source
-        // return _.find(books, { id: args.id })
-        return Books.findById(args.id)
-      },
-    },
-    author: {
-      type: AuthorType,
-      args: { id: { type: GraphQLID } },
-      resolve(parent, args) {
-        // return _.find(authors, { id: args.id })
-        return Authors.findById(args.id)
-      },
-    },
     books: {
       type: new GraphQLList(BookType),
       resolve(parent, args) {
@@ -76,7 +56,23 @@ const RootQuery = new GraphQLObjectType({
       type: new GraphQLList(AuthorType),
       resolve(parent, args) {
         // return authors
-        Authors.find({})
+        return Authors.find({})
+      },
+    },
+    book: {
+      type: BookType,
+      args: { id: { type: GraphQLID } },
+      resolve(parent, args) {
+        // code to fetch data from db / other source
+        return Books.findById(args.id)
+      },
+    },
+    author: {
+      type: AuthorType,
+      args: { id: { type: GraphQLID } },
+      resolve(parent, args) {
+        // return with specified ID
+        return Authors.findById(args.id)
       },
     },
   },
