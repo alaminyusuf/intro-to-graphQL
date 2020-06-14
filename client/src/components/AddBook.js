@@ -60,7 +60,7 @@ class AddBook extends Component {
             onChange={e => this.setState({ authorId: e.target.value })}
             placeholder="Select Author"
           >
-            {/* <option>Select Author</option> */}
+            <option>Select Author</option>
             {this.displayAuthors()}
           </select>
         </div>

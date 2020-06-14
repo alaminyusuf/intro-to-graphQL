@@ -16,9 +16,11 @@ class App extends Component {
   render() {
     return (
       <ApolloProvider client={client}>
-        <div style={{ textAlign: 'center' }}>
-          <h1>My Book List App</h1>
-          <BookList />
+        <div className="container">
+          <div style={{ textAlign: 'center' }}>
+            <h1>My Book List App</h1>
+            <BookList />
+          </div>
           <AddBook />
         </div>
       </ApolloProvider>

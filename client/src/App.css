@@ -11,3 +11,9 @@ body {
   background-color: #eee;
   color: #181818;
 }
+
+.container {
+  margin: auto;
+  width: 85%;
+  overflow: hidden;
+}
